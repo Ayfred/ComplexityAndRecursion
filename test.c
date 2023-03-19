@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <time.h>  
 
 #define NbRows 8
 #define NbColumns 7
@@ -207,6 +208,12 @@ void solve_tetro_puzzle(int piece_num, int number) {
 
 
 int main(){
+
+    // to store the execution time of code
+    double time_spent = 0.0;
+ 
+    clock_t begin = clock();
+
     board[0][6] = 9;
     board[1][6] = 9;
     board[7][0] = 9;
@@ -219,6 +226,14 @@ int main(){
     board[7][6] = 9;
     solve_tetro_puzzle(0, NbPieces-1);
     printf("total = %i\n", total);
+
+    clock_t end = clock();
+ 
+    // calculate elapsed time by finding difference (end - begin) and
+    // dividing the difference by CLOCKS_PER_SEC to convert to seconds
+    time_spent += (double)(end - begin) / CLOCKS_PER_SEC;
+ 
+    printf("The elapsed time is %f seconds", time_spent);
 
     return 0;
 }
