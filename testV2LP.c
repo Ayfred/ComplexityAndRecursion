@@ -150,8 +150,7 @@ bool isNew(int tboard[][7]){
 int lpSolve(int tboard[][7], int piecesLeft[], int nbPieces){
 
     int totalSolutions = 0;
-    bool notCovered = true;
-    //printf("a");
+    bool notCoverable = true;
     //If there are no more pieces to use, then the board is full
     if (nbPieces == 0){
         if(isNew(tboard)){
@@ -166,35 +165,32 @@ int lpSolve(int tboard[][7], int piecesLeft[], int nbPieces){
         //from the top left corner, line by line
         for(int i =0; i<NbRows; i++){
             for(int j = 0; j<NbColumns; j++){
-                notCovered = true;
-                //Only put pieces on empty spaces
-                if(true){
-                    //Trying every pieces for this particular slot, with every rotations also
-                    //printf("z");
-                    for (int n = 0; n < nbPieces; n++){
-                        int idpiece = piecesLeft[n];
-                        for (int k = 0; k < rotationsPieces[idpiece][1]; k++){
-                            //When a piece can be added on the slot, we add it to the board and try finish with the pieces left
-                            if(placePiece(idpiece, k, i, j, tboard)){
-                                //printBoard(tboard);
-                                //printf("e");
-                                notCovered = false;
-                                //cheking if the bow is empty
-                                int newList[nbPieces-1];
-                                removeElement(piecesLeft, newList, idpiece, nbPieces);
-                                totalSolutions += lpSolve(tboard, newList, nbPieces -1);
-                                // Then remove the piece so we try to place other pieces there
-                                remove_piece(idpiece, k, i, j, tboard);
-                            }
+                notCoverable = true;
+                //Trying every pieces for this particular slot, with every rotations also
+                for (int n = 0; n < nbPieces; n++){
+                    int idpiece = piecesLeft[n];
+                    for (int k = 0; k < rotationsPieces[idpiece][1]; k++){
+                        //When a piece can be added on the slot, we add it to the board and try finish with the pieces left
+                        if(placePiece(idpiece, k, i, j, tboard)){
+                            //printBoard(tboard);
+                            //printf("e");
+                            notCoverable = false;
+                            //cheking if the bow is empty
+                            int newList[nbPieces-1];
+                            removeElement(piecesLeft, newList, idpiece, nbPieces);
+                            totalSolutions += lpSolve(tboard, newList, nbPieces -1);
+                            // Then remove the piece so we try to place other pieces there
+                            remove_piece(idpiece, k, i, j, tboard);
                         }
                     }
-                    //if no piece can be placed here, then there will not be any further solutions
-                    if(tboard[i][j]==0){
-                        return totalSolutions;
-                    }
+                }
+                //if no piece can be placed here, then there will not be any further solutions
+                if(tboard[i][j]==0 && notCoverable){
+                    return 0;
                 }
             }
         }
+        return totalSolutions;
     }
 }
 
