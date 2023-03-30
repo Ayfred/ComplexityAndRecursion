@@ -62,9 +62,14 @@ bool placePiece(int piece_num, int rotation_num, int x, int y, int size, int rot
 void removePiece(int piece_num, int rotation_num, int x, int y, int size, int rotation);
 void solvePuzzle(int piece_num, int number, int size, int rotation);
 bool isEncircled(int matrix[ROWS][COLUMNS]);
+void chooseDate(int day, int month, int year);
 
 //Méthode principale
 int main(){
+    double time_spent = 0.0; //variable qui va contenir le temps d'exécution du programme
+ 
+    clock_t begin = clock(); //on récupère le temps au début de l'exécution du programme
+
     //On initialise le plateau
     board[0][6] = 11;
     board[1][6] = 11;
@@ -72,14 +77,9 @@ int main(){
     board[7][1] = 11;
     board[7][2] = 11;
     board[7][3] = 11;
-    board[0][0] = 11;
-    board[2][0] = 11;
-    //board[6][3] = 11;
-    board[7][6] = 11;
 
-    double time_spent = 0.0; //variable qui va contenir le temps d'exécution du programme
- 
-    clock_t begin = clock(); //on récupère le temps au début de l'exécution du programme
+    //Samedi 1 janvier
+    chooseDate(6, 1, 1);
 
     //on commence par la pièce numéro 0
     //on a en tout PIECES-1 pièces à placer
@@ -217,5 +217,167 @@ void solvePuzzle(int piece_num, int number, int size, int rotation) {
                 }
             }
         }
+    }
+}
+
+void chooseDate(int s, int j, int m){
+    switch (m)
+    {
+    case 1:
+        board[0][0] = 11;
+        break;
+    case 2:
+        board[0][1] = 11;
+        break;
+    case 3:
+        board[0][2] = 11;
+        break;
+    case 4:
+        board[0][3] = 11;
+        break;
+    case 5:
+        board[0][4] = 11;
+        break;
+    case 6:
+        board[0][5] = 11;
+        break;
+    case 7:
+        board[1][0] = 11;
+        break;
+    case 8:
+        board[1][1] = 11;
+        break;
+    case 9:
+        board[1][2] = 11;
+        break;
+    case 10:
+        board[1][3] = 11;
+        break;
+    case 11:
+        board[1][4] = 11;
+        break;
+    case 12:
+        board[1][5] = 11;
+        break;
+    }
+    switch (j)
+    {
+    case 1:
+        board[2][0] = 11;
+        break;
+    case 2:
+        board[2][1] = 11;
+        break;
+    case 3:
+        board[2][2] = 11;
+        break;
+    case 4:
+        board[2][3] = 11;
+        break;
+    case 5:
+        board[2][4] = 11;
+        break;
+    case 6:
+        board[2][5] = 11;
+        break;
+    case 7:
+        board[2][6] = 11;
+        break;
+    case 8:
+        board[3][0] = 11;
+        break;
+    case 9:
+        board[3][1] = 11;
+        break;
+    case 10:
+        board[3][2] = 11;
+        break;
+    case 11:
+        board[3][3] = 11;
+        break;
+    case 12:
+        board[3][4] = 11;
+        break;
+    case 13:
+        board[3][5] = 11;
+        break;
+    case 14:
+        board[3][6] = 11;
+        break;
+    case 15:
+        board[4][0] = 11;
+        break;
+    case 16:
+        board[4][1] = 11;
+        break;
+    case 17:
+        board[4][2] = 11;
+        break;
+    case 18:
+        board[4][3] = 11;
+        break;
+    case 19:
+        board[4][4] = 11;
+        break;
+    case 20:
+        board[4][5] = 11;
+        break;
+    case 21:
+        board[4][6] = 11;
+        break;
+    case 22:
+        board[5][0] = 11;
+        break;
+    case 23:
+        board[5][1] = 11;
+        break;
+    case 24:
+        board[5][2] = 11;
+        break;
+    case 25:
+        board[5][3] = 11;
+        break;
+    case 26:
+        board[5][4] = 11;
+        break;
+    case 27:
+        board[5][5] = 11;
+        break;
+    case 28:
+        board[5][6] = 11;
+        break;
+    case 29:
+        board[6][0] = 11;
+        break;
+    case 30:
+        board[6][1] = 11;
+        break;
+    case 31:
+        board[6][2] = 11;
+        break;
+    }
+    switch (s)
+    {
+    case 7:
+        board[6][3] = 11;
+        break;
+    case 1:
+        board[6][4] = 11;
+        break;
+    case 2:
+        board[6][5] = 11;
+        break;
+    case 3:
+        board[6][6] = 11;
+        break;
+    case 4:
+        board[7][4] = 11;
+        break;
+    case 5:
+        board[7][5] = 11;
+        break;
+    case 6:
+        board[7][6] = 11;
+        break;
     }
 }
