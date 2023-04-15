@@ -1,4 +1,4 @@
-# Complexité & Récursivité: Compte rendu TP Calendrier de Gérard Dray - 2023
+# Complexity & Recursion: Report Gérard Dray's Calendar - 2023
 
 Authors: FORAY Leo Paul, MU Maxime (IMT Mines Alès)  
 Date: 26/03/2023
@@ -16,8 +16,8 @@ Date: 26/03/2023
 ## 1. Introduction
 The objective of this work is to examine the different solutions of the following problem:
  
-![Alt Text](intro1.png)
-![Alt Text](intro2.png)
+![intro1](pictures/intro1.png)
+![intro2](pictures/intro2.png)
 
 We are looking for the different possibilities of filling the board on the right with the pieces on the left.
 We know that when all the pieces are placed, only three green squares remain uncovered, and we want these three squares to form a date (Month – Day – Day of the week).
