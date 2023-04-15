@@ -74,16 +74,16 @@ We then tried to solve the problem using an approach other than backtracking. Th
 
 o We try to place all the pieces as well as their rotations.
 
- When a piece can be placed on this square:
+ - When a piece can be placed on this square:
 
- Place the piece on the board.
+ - Place the piece on the board.
 
- The resolution method is called by recursion, with the new board thus formed, the list of pieces remaining to be placed, and the number of pieces remaining to be placed as parameters.
- Then we remove this piece from the board, so that the loop can test other possibilities.
+ - The resolution method is called by recursion, with the new board thus formed, the list of pieces remaining to be placed, and the number of pieces remaining to be placed as parameters.
+ - Then we remove this piece from the board, so that the loop can test other possibilities.
 
- When all the pieces have been tested, if the box is empty (i.e. if it was not initially locked) the number of solutions found is returned.
+ - When all the pieces have been tested, if the box is empty (i.e. if it was not initially locked) the number of solutions found is returned.
 
- Otherwise the loop continues its course.
+ - Otherwise the loop continues its course.
 
 However, this method which should only return unique results, returns duplicate results. If we take the example of Saturday January 1, for which 54 different solutions exist, this method returns 63, but in only 1.23 seconds.
 We obviously have duplicates among the solutions, and we were even able to identify 7 pairs that were found each time one after the other. Therefore, we tried to create a backup of the solutions found to add them only once, however after multiple attempts this method does not work, and we therefore do not achieve a relevant result with this algorithm.
