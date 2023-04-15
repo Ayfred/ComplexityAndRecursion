@@ -27,7 +27,7 @@ Therefore, we would like to find all the possible solutions to this problem, in 
 For a given instance, the variables that govern the problem are the blue pieces that have translation and rotation properties. Indeed each can be positioned in various places, and can undergo rotations of 90°, 180° and 270° (exception will be made for symmetrical parts).
 For the modeling of the problem, one considers the placement of the top left point of the part.
 
-![Alt Text](variables.png)
+![variables](/pictures/variables.png)
  
 So in some cases, like this, there is no blue square in that specific corner. In this model, each part a belonging to the set [1,10] is represented by the triplet (xₐ, yₐ, rₐ) which translates its position on the board according to x and y as well as its rotation.
 
@@ -50,7 +50,7 @@ It defines a game grid of dimensions "ROWSxCOLUMNS (8x7)" called "board" and rep
 The constants ROWS, COLUMNS, PIECES and ROTATIONS respectively define the number of rows and columns of the game board, the number of different pieces available for the game, and the maximum number of rotations possible for each piece.
 As specified above, our pieces are referenced from the top left corner, and are composed of the coordinates of each of the squares making up the piece in relation to this top left corner.
 
-![Alt Text](algorithm1.png)
+![algorithm1](pictures/algorithm1.png)
 
   For example, this piece is represented by {{0, 1}, {1, 1}, {2, 1}, {3, 0}, {3,1}}
 
@@ -96,7 +96,7 @@ This is why we have created the “isEncircled” method which detects the prese
 
 For example :
 
-![Alt Text](results.jpg)
+![results](pictures/results.jpg)
 
 Thus, one can note the importance of this method thanks to the economy of calculations which it provides.
 
@@ -106,8 +106,8 @@ In the interest of figuring out which part of the loop to create these duplicate
 
 ## 4. Results and Interpretations
 
-![Alt Text](results2.jpg)
-![Alt Text](results3.jpg)
+![results2](pictures/results2.jpg)
+![results3](pictures/results3.jpg)
 
 We tested our algorithm on the 2,604 possibilities and 19 dates do not have solutions, Tuesday, November 29 is the instance that has the most solutions, with no less than 197 possibilities.
 
